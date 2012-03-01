@@ -12,4 +12,9 @@ set_include_path(get_include_path() . PATH_SEPARATOR . "$baseDir/../libs");
 
 if (DOMAIN_APPEND && file_exists("$baseDir/../debug.php")) {
     require_once("$baseDir/../debug.php");
+} else {
+    define('CONSUMER_KEY', getenv('CONSUMER_KEY'));
+    define('CONSUMER_SECRET', getenv('CONSUMER_SECRET'));
+    define('ACCESS_TOKEN', getenv('ACCESS_TOKEN'));
+    define('ACCESS_SECRET', getenv('ACCESS_SECRET'));
 }
