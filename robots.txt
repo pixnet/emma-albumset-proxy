@@ -1,0 +1,3 @@
+# emma-albumset-proxy.pixplug.in
+User-agent: *
+Disallow: /

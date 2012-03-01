@@ -1,0 +1,8 @@
+#
+Options -Indexes
+RewriteEngine On
+RewriteBase /
+
+# 其他的全部導到 webroot
+RewriteCond %{REQUEST_URI} !^/webroot
+RewriteRule ^(.*) webroot/$1 [PT,L]
