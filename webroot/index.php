@@ -2,6 +2,11 @@
 require_once('bootstrap.php');
 require_once('PixAPI.php');
 
+if ($_GET['sig'] != crc32(SHARED_SECRET . $_GET['set_id'])) {
+    echo json_encode(array('error' => 1, 'message' => 'signature error'));
+    exit;
+}
+
 $api = new PixAPI(CONSUMER_KEY, CONSUMER_SECRET);
 $api->setToken(ACCESS_TOKEN, ACCESS_SECRET);
 if (DOMAIN_APPEND) {
