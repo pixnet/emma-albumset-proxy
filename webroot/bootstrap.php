@@ -17,4 +17,5 @@ if (DOMAIN_APPEND && file_exists("$baseDir/../debug.php")) {
     define('CONSUMER_SECRET', getenv('CONSUMER_SECRET'));
     define('ACCESS_TOKEN', getenv('ACCESS_TOKEN'));
     define('ACCESS_SECRET', getenv('ACCESS_SECRET'));
+    define('SHARED_SECRET', getenv('SHARED_SECRET'));
 }
