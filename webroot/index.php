@@ -30,4 +30,8 @@ case 'set':
 
 if (isset($_GET['callback'])) {
     printf('%s(%s)', htmlspecialchars($_GET['callback']), $json);
+    exit;
 }
+
+echo json_encode(array('error' => 1, 'message' => 'no such object'));
+exit;
