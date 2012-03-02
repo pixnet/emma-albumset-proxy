@@ -27,3 +27,7 @@ case 'set':
         array('get_params' => array('user' => strval($_GET['user']))));
     break;
 }
+
+if (isset($_GET['callback'])) {
+    printf('%s(%s)', htmlspecialchars($_GET['callback']), $json);
+}
