@@ -13,5 +13,17 @@ if (DOMAIN_APPEND) {
     $api->setCurlOptions(array(CURLOPT_PROXY => 'proxy.srv.pixnet:3128'));
 }
 
-//print_r(json_decode($api->http('http://emma.pixnet.cc/album/sets/16254219', array('get_params' => array('user' => 'movieca')))));
-print_r(json_decode($api->http('http://emma.pixnet.cc/album/elements', array('get_params' => array('set_id' => 16254219, 'type' => 'pic', 'with_detail' => 1)))));
+switch ($_GET['service']) {
+case 'element':
+    $json = $api->http('http://emma.pixnet.cc/album/elements', array('get_params' => array(
+        'set_id' => intval($_GET['set_id']),
+        'type' => 'pic',
+        'with_detail' => 1,
+        'per_page' => 1000
+    )));
+    break;
+case 'set':
+    $json = $api->http('http://emma.pixnet.cc/album/sets/' . intval($_GET['set_id']),
+        array('get_params' => array('user' => strval($_GET['user']))));
+    break;
+}
